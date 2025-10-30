@@ -1,0 +1,13 @@
+# Binaries
+ktrun
+*.exe
+*.out
+
+# Build artifacts
+*.jar
+*.class
+
+# IDE stuff
+.idea/
+.vscode/
+
