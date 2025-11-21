@@ -7,6 +7,52 @@ import (
 	"path/filepath"
 )
 
+func runKotlin(file string) {
+	out := "out.jar"
+
+	// Compile
+	compileCmd := exec.Command("kotlinc", file, "-include-runtime", "-d", out)
+	compileCmd.Stdout = os.Stdout
+	compileCmd.Stderr = os.Stderr
+	if err := compileCmd.Run(); err != nil {
+		fmt.Println("Compilation failed:", err)
+		os.Exit(1)
+	}
+
+	// Run
+	runCmd := exec.Command("java", "-jar", out)
+	runCmd.Stdout = os.Stdout
+	runCmd.Stderr = os.Stderr
+	if err := runCmd.Run(); err != nil {
+		fmt.Println("Execution failed:", err)
+		os.Exit(1)
+	}
+
+	os.Remove(out)
+}
+
+func runCpp(file string) {
+	// Compile
+	compileCmd := exec.Command("g++", file, "-o", "main")
+	compileCmd.Stdout = os.Stdout
+	compileCmd.Stderr = os.Stderr
+	if err := compileCmd.Run(); err != nil {
+		fmt.Println("Compilation failed:", err)
+		os.Exit(1)
+	}
+
+	// Run
+	runCmd := exec.Command("./main")
+	runCmd.Stdout = os.Stdout
+	runCmd.Stderr = os.Stderr
+	if err := runCmd.Run(); err != nil {
+		fmt.Println("Execution failed:", err)
+		os.Exit(1)
+	}
+
+	os.Remove("main")
+}
+
 func main() {
 	if len(os.Args) < 2 {
 		fmt.Println("Usage: ktrun <file.kt>")
@@ -14,32 +60,15 @@ func main() {
 	}
 
 	file := os.Args[1]
-	if filepath.Ext(file) != ".kt" {
-		fmt.Println("Please provide a .kt file")
+	ext := filepath.Ext(file)
+
+	switch ext {
+	case ".kt":
+		runKotlin(file)
+	case ".cpp", ".cc":
+		runCpp(file)
+	default:
+		fmt.Println("File not supported")
 		os.Exit(1)
 	}
-
-	// Temporary output jar
-	out := "out.jar"
-
-	// Compile
-	cmd := exec.Command("kotlinc", file, "-include-runtime", "-d", out)
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-	if err := cmd.Run(); err != nil {
-		fmt.Println("Compilation failed:", err)
-		os.Exit(1)
-	}
-
-	// Run
-	run := exec.Command("java", "-jar", out)
-	run.Stdout = os.Stdout
-	run.Stderr = os.Stderr
-	if err := run.Run(); err != nil {
-		fmt.Println("Execution failed:", err)
-		os.Exit(1)
-	}
-
-	// Clean up
-	os.Remove(out)
 }
