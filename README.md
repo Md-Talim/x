@@ -1,83 +1,53 @@
-# ktrun
+# x
 
-`ktrun` is a versatile CLI tool that lets you run code files directly from the terminal. Originally built for Kotlin, it now supports multiple programming languages, making it perfect for quick scripts, DSA problems, competitive programming, or experiments without opening an IDE or setting up complex build systems.
+The fastest way to run single code files. Just `x filename.ext`.
+
+`x` is a minimal CLI tool for running single code files directly from the terminal. Perfect for quick scripts, DSA problems, competitive programming, or experiments without IDE overhead.
 
 ## Features
 
-- **Multi-language support**: Run `.kt` (Kotlin), `.java` (Java), `.cpp/.cc` (C++) files directly
-- **Simple workflow**: Compile and run in one command
-- **Clean execution**: Automatically cleans up generated files after execution
-- **Lightweight**: No complex configuration or project setup required
+- **Ultra-minimal**: Just 1 character to type - `x`
+- **Multi-language**: Supports Kotlin, Java, C++ (more coming)
+- **Single file focus**: No project setup, just run individual files
+- **Auto-cleanup**: Removes generated files after execution
 
 ## Supported Languages
 
-| Language | File Extensions | Requirements          |
-| -------- | --------------- | --------------------- |
-| Kotlin   | `.kt`           | `kotlinc`, `java`     |
-| Java     | `.java`         | `javac`, `java` (JDK) |
-| C++      | `.cpp`, `.cc`   | `g++`                 |
+| Language | Extensions    | Requirements      |
+| -------- | ------------- | ----------------- |
+| Kotlin   | `.kt`         | `kotlinc`, `java` |
+| Java     | `.java`       | `javac`, `java`   |
+| C++      | `.cpp`, `.cc` | `g++`             |
 
 ## Installation
 
-Make sure you have Go installed, then run:
-
 ```bash
-go install github.com/md-talim/ktrun@latest
+go install github.com/md-talim/x@latest
 ```
 
 ## Usage
 
-Run any supported file:
-
 ```bash
-# Kotlin
-ktrun main.kt
-
-# Java
-ktrun Solution.java
-
-# C++
-ktrun algorithm.cpp
+x main.kt         # Kotlin
+x Solution.java   # Java
+x algorithm.cpp   # C++
 ```
 
 ## Requirements
 
-### Core
+- **Go** (for installation)
+- **Language compilers**: `kotlinc`/`java`, `javac`/`java`, `g++`
 
-- Go (for installation)
-
-### Language-specific
-
-- **Kotlin**: Kotlin CLI (`kotlinc`) and Java Runtime (`java`)
-- **Java**: Java Development Kit (JDK) with `javac` and `java`
-- **C++**: GCC compiler (`g++`)
-
-Make sure the required compilers and runtimes are available in your system PATH.
+Make sure compilers are in your PATH.
 
 ## Future Plans
 
-This project is continuously evolving! Planned features include:
+- **More languages**: Python, Rust, Go, JavaScript, TypeScript
+- **Multi-file support**: Run projects with multiple source files
+- **That's it**: No complex features, just fast single-file execution
 
-### Near-term
+## Why x?
 
-- **Python support** (`.py` files)
-- **Rust support** (`.rs` files)
-- **Go support** (`.go` files) - ironic, right? 😄
+This tool does one thing well: quickly run single code files. For complex project management, build systems, or scaffolding - use proper tools or a future `dash` CLI.
 
-### Medium-term
-
-- Support for multiple files and simple project structures
-- Configuration file support for custom compile flags
-- Package/dependency management for supported languages
-- Faster build and execution options with caching
-
-### Long-term
-
-- Commands like `ktrun run .` or `ktrun init` similar to Go CLI
-- Language-specific templates and scaffolding
-- Integration with popular online judges
-- Plugin system for custom language support
-
-## Contributing
-
-Feel free to open issues or submit pull requests if you'd like to see support for additional languages or features!
+`x` = execute. Simple.
