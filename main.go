@@ -81,7 +81,7 @@ func runJava(file string) {
 
 func main() {
 	if len(os.Args) < 2 {
-		fmt.Println("Usage: ktrun <file.kt>")
+		fmt.Println("Usage: x <file.kt|file.java|file.cpp>")
 		os.Exit(1)
 	}
 
