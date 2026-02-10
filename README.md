@@ -1,8 +1,8 @@
-# x
+# `x`
 
 The fastest way to run single code files. Just `x filename.ext`.
 
-`x` is a minimal CLI tool for running single code files directly from the terminal. Perfect for quick scripts, DSA problems, competitive programming, or experiments without IDE overhead.
+`x` is a minimal CLI tool for compiling and running single source files directly from the terminal. Perfect for quick scripts, DSA problems, competitive programming, or experiments - no project setup or IDE needed.
 
 ## Features
 
@@ -10,44 +10,40 @@ The fastest way to run single code files. Just `x filename.ext`.
 - **Multi-language**: Supports Kotlin, Java, C++ (more coming)
 - **Single file focus**: No project setup, just run individual files
 - **Auto-cleanup**: Removes generated files after execution
+- **Fast**: Written in Rust, starts instantly
 
 ## Supported Languages
 
 | Language | Extensions    | Requirements      |
 | -------- | ------------- | ----------------- |
-| Kotlin   | `.kt`         | `kotlinc`, `java` |
-| Java     | `.java`       | `javac`, `java`   |
 | C++      | `.cpp`, `.cc` | `g++`             |
+| Java     | `.java`       | `javac`, `java`   |
+| Kotlin   | `.kt`         | `kotlinc`, `java` |
+
+The relevant compiler/runtime must be installed and available in your `PATH`:
 
 ## Installation
 
-```bash
-go install github.com/md-talim/x@latest
+### From Source (requires [Rust](https://rustup.rs/))
+
+```sh
+# Install directly from GitHub (no clone needed)
+cargo install --git https://github.com/Md-Talim/x
+
+# Or clone and install locally
+git clone https://github.com/Md-Talim/x.git
+cd x
+cargo install --path .
 ```
 
 ## Usage
 
 ```bash
-x main.kt         # Kotlin
-x Solution.java   # Java
 x algorithm.cpp   # C++
+x Solution.java   # Java
+x main.kt         # Kotlin
 ```
-
-## Requirements
-
-- **Go** (for installation)
-- **Language compilers**: `kotlinc`/`java`, `javac`/`java`, `g++`
-
-Make sure compilers are in your PATH.
-
-## Future Plans
-
-- **More languages**: Python, Rust, Go, JavaScript, TypeScript
-- **Multi-file support**: Run projects with multiple source files
-- **That's it**: No complex features, just fast single-file execution
 
 ## Why x?
 
-This tool does one thing well: quickly run single code files. For complex project management, build systems, or scaffolding - use proper tools or a future `dash` CLI.
-
-`x` = execute. Simple.
+`x` = execute. One character. No friction. Run your code.
