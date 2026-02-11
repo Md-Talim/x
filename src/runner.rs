@@ -33,6 +33,7 @@ pub fn get_runner(ext: &str) -> Option<Box<dyn Runner>> {
         "cpp" | "cc" => Some(Box::new(cpp::Cpp)),
         "java" => Some(Box::new(java::Java)),
         "kt" => Some(Box::new(kotlin::Kotlin)),
+        "py" => Some(Box::new(python::Python)),
         _ => None,
     }
 }
