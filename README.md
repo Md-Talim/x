@@ -7,7 +7,7 @@ The fastest way to run single code files. Just `x filename.ext`.
 ## Features
 
 - **Ultra-minimal**: Just 1 character to type - `x`
-- **Multi-language**: Supports Kotlin, Java, C++ (more coming)
+- **Multi-language**: Supports Kotlin, Java, C/C++, Python (more coming)
 - **Single file focus**: No project setup, just run individual files
 - **Auto-cleanup**: Removes generated files after execution
 - **Fast**: Written in Rust, starts instantly
@@ -16,9 +16,11 @@ The fastest way to run single code files. Just `x filename.ext`.
 
 | Language | Extensions    | Requirements      |
 | -------- | ------------- | ----------------- |
+| C        | `.c`          | `gcc`             |
 | C++      | `.cpp`, `.cc` | `g++`             |
 | Java     | `.java`       | `javac`, `java`   |
 | Kotlin   | `.kt`         | `kotlinc`, `java` |
+| Python   | `.py`         | `python`          |
 
 The relevant compiler/runtime must be installed and available in your `PATH`:
 
@@ -39,9 +41,11 @@ cargo install --path .
 ## Usage
 
 ```bash
+x main.c          # C
 x algorithm.cpp   # C++
 x Solution.java   # Java
 x main.kt         # Kotlin
+x hello.py        # Python
 ```
 
 ## Why x?
