@@ -6,5 +6,3 @@ description = "Run any source file with one command"
 repository = "https://github.com/Md-Talim/x"
 readme = "README.md"
 keywords = ["cli", "runner", "compiler", "developer-tools", "x", "execute"]
-
-[dependencies]
