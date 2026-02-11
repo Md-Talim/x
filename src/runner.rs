@@ -29,6 +29,7 @@ use crate::languages::*;
 
 pub fn get_runner(ext: &str) -> Option<Box<dyn Runner>> {
     match ext {
+        "c" => Some(Box::new(cpp::C)),
         "cpp" | "cc" => Some(Box::new(cpp::Cpp)),
         "java" => Some(Box::new(java::Java)),
         "kt" => Some(Box::new(kotlin::Kotlin)),
