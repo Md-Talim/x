@@ -2,6 +2,8 @@
 name = "x"
 version = "0.1.0"
 edition = "2024"
+license = "MIT"
+authors = ["Mohammad Talim <talimmohammad116@gmail.com>"]
 description = "Run any source file with one command"
 repository = "https://github.com/Md-Talim/x"
 readme = "README.md"
